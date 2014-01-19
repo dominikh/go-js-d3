@@ -39,7 +39,7 @@ func (s Selection) Enter() Selection {
 	return Selection{s.Call("enter")}
 }
 
-func (s Selection) Style(name, value string) {
+func (s Selection) SetStyle(name, value string) {
 	if len(value) == 0 {
 		s.Call("style", name, nil)
 	} else {
