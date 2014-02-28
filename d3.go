@@ -7,16 +7,18 @@ import (
 	"honnef.co/go/js/util"
 )
 
+var d3 = js.Global.Get("d3")
+
 type Selection struct {
 	js.Object
 }
 
 func Select(sel string) Selection {
-	return Selection{js.Global("d3").Call("select", sel)}
+	return Selection{d3.Call("select", sel)}
 }
 
 func SelectAll(sel string) Selection {
-	return Selection{js.Global("d3").Call("selectAll", sel)}
+	return Selection{d3.Call("selectAll", sel)}
 }
 
 func (s Selection) Append(name string) Selection {
@@ -61,7 +63,7 @@ func (sel Selection) SetData(data []Data) Selection {
 }
 
 func JSON(url *url.URL, fn func(err error, data js.Object)) {
-	js.Global("d3").Call("json", url.String(), func(err js.Object, data js.Object) {
+	d3.Call("json", url.String(), func(err js.Object, data js.Object) {
 		fn(util.Error(err), data)
 	})
 }
@@ -69,6 +71,6 @@ func JSON(url *url.URL, fn func(err error, data js.Object)) {
 type Formatter func(js.Object) string
 
 func Format(spec string) Formatter {
-	f := js.Global("d3").Call("format", spec)
+	f := d3.Call("format", spec)
 	return func(o js.Object) string { return f.Invoke(o).String() }
 }

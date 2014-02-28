@@ -6,6 +6,8 @@ import (
 	"honnef.co/go/js/util"
 )
 
+var _d3 = js.Global.Get("d3")
+
 // TODO document that you can't implement your own d3 scales, which is
 // unfortunate.
 
@@ -89,35 +91,35 @@ func (s Threshold) Underlying() js.Object {
 }
 
 func NewLinear() Linear {
-	return Linear{js.Global("d3").Get("scale").Call("linear"), scale{}}
+	return Linear{_d3.Get("scale").Call("linear"), scale{}}
 }
 
 func NewIdentity() Identity {
-	return Identity{js.Global("d3").Get("scale").Call("identity"), scale{}}
+	return Identity{_d3.Get("scale").Call("identity"), scale{}}
 }
 
 func NewSqrt() Power {
-	return Power{js.Global("d3").Get("scale").Call("sqrt"), scale{}}
+	return Power{_d3.Get("scale").Call("sqrt"), scale{}}
 }
 
 func NewPower() Power {
-	return Power{js.Global("d3").Get("scale").Call("pow"), scale{}}
+	return Power{_d3.Get("scale").Call("pow"), scale{}}
 }
 
 func NewLog() Log {
-	return Log{js.Global("d3").Get("scale").Call("log"), scale{}}
+	return Log{_d3.Get("scale").Call("log"), scale{}}
 }
 
 func NewQuantize() Quantize {
-	return Quantize{js.Global("d3").Get("scale").Call("quantize"), scale{}}
+	return Quantize{_d3.Get("scale").Call("quantize"), scale{}}
 }
 
 func NewQuantile() Quantile {
-	return Quantile{js.Global("d3").Get("scale").Call("quantile"), scale{}}
+	return Quantile{_d3.Get("scale").Call("quantile"), scale{}}
 }
 
 func NewThreshold() Threshold {
-	return Threshold{js.Global("d3").Get("scale").Call("threshold"), scale{}}
+	return Threshold{_d3.Get("scale").Call("threshold"), scale{}}
 }
 
 func (s Linear) Invoke(val interface{}) js.Object {
