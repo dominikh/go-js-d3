@@ -3,7 +3,7 @@ package d3
 import (
 	"net/url"
 
-	"github.com/neelance/gopherjs/js"
+	"github.com/gopherjs/gopherjs/js"
 	"honnef.co/go/js/util"
 )
 

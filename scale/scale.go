@@ -1,9 +1,9 @@
 package scale
 
 import (
-	"github.com/neelance/gopherjs/js"
-	"honnef.co/go/js/util"
+	"github.com/gopherjs/gopherjs/js"
 	"honnef.co/go/js/d3"
+	"honnef.co/go/js/util"
 )
 
 // TODO document that you can't implement your own d3 scales, which is
