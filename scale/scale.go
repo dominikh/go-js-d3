@@ -411,7 +411,7 @@ func (s Linear) TickFormat(count int, format string) d3.Formatter {
 		args = append(args, format)
 	}
 	ret := s.Call("tickFormat", args...)
-	return func(o js.Object) string { return ret.Invoke(o).String() }
+	return func(o js.Object) string { return ret.Invoke(o).Str() }
 }
 
 func (s Identity) TickFormat(count int, format string) d3.Formatter {
@@ -420,7 +420,7 @@ func (s Identity) TickFormat(count int, format string) d3.Formatter {
 		args = append(args, format)
 	}
 	ret := s.Call("tickFormat", args...)
-	return func(o js.Object) string { return ret.Invoke(o).String() }
+	return func(o js.Object) string { return ret.Invoke(o).Str() }
 }
 
 func (s Power) TickFormat(count int, format string) d3.Formatter {
@@ -432,7 +432,7 @@ func (s Power) TickFormat(count int, format string) d3.Formatter {
 		args = append(args, format)
 	}
 	ret := s.Call("tickFormat", args...)
-	return func(o js.Object) string { return ret.Invoke(o).String() }
+	return func(o js.Object) string { return ret.Invoke(o).Str() }
 }
 
 func (s Log) TickFormat(count int, format string) d3.Formatter {
@@ -444,5 +444,5 @@ func (s Log) TickFormat(count int, format string) d3.Formatter {
 		args = append(args, format)
 	}
 	ret := s.Call("tickFormat", args...)
-	return func(o js.Object) string { return ret.Invoke(o).String() }
+	return func(o js.Object) string { return ret.Invoke(o).Str() }
 }

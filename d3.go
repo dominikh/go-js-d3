@@ -72,5 +72,5 @@ type Formatter func(js.Object) string
 
 func Format(spec string) Formatter {
 	f := d3.Call("format", spec)
-	return func(o js.Object) string { return f.Invoke(o).String() }
+	return func(o js.Object) string { return f.Invoke(o).Str() }
 }
